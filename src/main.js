@@ -63,3 +63,18 @@ const formatPayload = ({
       : `thesisIdLst=${thesisId}`
   }&prtTxt=${hidden.prtTxt}`;
 
+const generateChooseThesisBody = thesisId =>
+  formatPayload({
+    eventTarget: "thesisIdLst",
+    tokenizedInputs: captureTokenizedInputs(),
+    hidden: captureHiddenInputs(),
+    thesisId
+  });
+
+const generateRemoveThesisBody = stdThesisIdLst =>
+  formatPayload({
+    tokenizedInputs: captureTokenizedInputs(),
+    hidden: captureHiddenInputs(),
+    stdThesisIdLst
+  });
+
