@@ -25,5 +25,5 @@ sectionThingy.appendChild(submitCustomAddition);
 submitCustomAddition.addEventListener("click", event => {
   event.preventDefault();
 
-  clearChosenTheses();
+  addRemaining();
 });
