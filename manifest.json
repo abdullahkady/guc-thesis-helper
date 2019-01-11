@@ -12,7 +12,8 @@
         "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
       ],
       "js": [
-        "main.js"
+        "src/main.js",
+        "src/inject.js"
       ],
       "run_at": "document_end"
     }
