@@ -18,6 +18,15 @@ const REQUEST_CONFIG = {
 
 const getInputValue = id => document.getElementById(id).value;
 
+const getRemainingIds = () =>
+  Array.from(document.getElementById("thesisIdLst").children).map(
+    selection => selection.value
+  );
+
+const getChosenIds = () =>
+  Array.from(document.getElementById("stdThesisIdLst").children).map(
+    selection => selection.value
+  );
 
 const captureTokenizedInputs = () => ({
   viewState: getInputValue("__VIEWSTATE"),
@@ -89,3 +98,23 @@ const removeThesis = id =>
     body: generateRemoveThesisBody(id)
   });
 
+const clearChosenTheses = async () => {
+  const shouldDelete = confirm(
+    "This will remove every single entry you currently have, are you sure?"
+  );
+
+  if (!shouldDelete) return;
+  await Promise.all(getChosenIds().map(removeThesis));
+  alert("Cleared successfully :)");
+};
+
+const addRemaining = async () => {
+  // Just for testing, should have a bulk selection -hopefully-
+  const count = Number(prompt("Please enter how many you wanna add"));
+  const remaining = getRemainingIds();
+  for (let i = 0; i < count; i++) {
+    await addThesis(remaining[i]);
+    console.log("One has been added");
+  }
+  alert("All done !");
+};
