@@ -12,7 +12,10 @@
         "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
       ],
       "js": [
+        "src/constants.js",
+        "src/dom-manipulation.js",
         "src/main.js",
+        "src/request-formatter.js",
         "src/inject.js"
       ],
       "run_at": "document_end"
