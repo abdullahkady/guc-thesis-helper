@@ -1,0 +1,20 @@
+{
+  "name": "GUC Thesis Helper",
+  "version": "1.0",
+  "description": "Get some help dealing with the worst possible prioritization system",
+  "manifest_version": 2,
+  "permissions": [
+    "http://student.guc.edu.eg/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
+      ],
+      "js": [
+        "main.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
