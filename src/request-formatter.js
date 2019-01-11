@@ -1,3 +1,8 @@
+/*
+  The file contains all the encoding/mapping required for a valid
+  request.
+*/
+
 const captureTokenizedInputs = () => ({
   viewState: getInputValue("__VIEWSTATE"),
   viewStateGenerator: getInputValue("__VIEWSTATEGENERATOR"),

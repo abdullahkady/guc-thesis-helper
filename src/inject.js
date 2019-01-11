@@ -1,3 +1,8 @@
+/*
+  The file contains what deals with content displayed in the
+  HTML (injected in the DOM), thus it must run as the last script
+*/
+
 const sectionThingy = document.querySelectorAll(
   "#Table2 > tbody > tr:nth-child(2) > td:nth-child(2)"
 )[1];
