@@ -13,8 +13,7 @@ const REQUEST_CONFIG = {
   headers: HEADERS,
   referrer: "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx",
   referrerPolicy: "no-referrer-when-downgrade",
-  method: "POST",
-  mode: "cors"
+  method: "POST"
 };
 
 const getInputValue = id => document.getElementById(id).value;
@@ -76,5 +75,17 @@ const generateRemoveThesisBody = stdThesisIdLst =>
     tokenizedInputs: captureTokenizedInputs(),
     hidden: captureHiddenInputs(),
     stdThesisIdLst
+  });
+
+const addThesis = id =>
+  fetch("http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx", {
+    ...REQUEST_CONFIG,
+    body: generateChooseThesisBody(id)
+  });
+
+const removeThesis = id =>
+  fetch("http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx", {
+    ...REQUEST_CONFIG,
+    body: generateRemoveThesisBody(id)
   });
 
