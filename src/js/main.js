@@ -16,7 +16,13 @@ const clearChosenTheses = async () => {
   );
 
   if (!shouldDelete) return;
-  await Promise.all(getChosenIds().map(removeThesisRequest));
+  const chosen = getChosenIds();
+  toggleSpinner();
+  for (let i = 0; i < chosen.length; i++) {
+    await removeThesisRequest(chosen[i]);
+    updateProgress(i + 1, chosen.length);
+  }
+  toggleSpinner();
   alert("Cleared successfully :)");
 };
 
