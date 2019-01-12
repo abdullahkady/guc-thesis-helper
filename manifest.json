@@ -16,7 +16,11 @@
         "src/js/dom-manipulation.js",
         "src/js/main.js",
         "src/js/request-formatter.js",
-        "src/js/inject.js"
+        "src/js/inject.js",
+        "src/js/spinner.js"
+      ],
+      "css": [
+        "src/css/spinner.css"
       ],
       "run_at": "document_end"
     }
