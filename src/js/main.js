@@ -12,14 +12,14 @@ const removeThesisRequest = id =>
 
 const clearIds = async ids => {
   for (let i = 0; i < ids.length; i++) {
-    await removeThesisRequest(ids[i]);
     updateProgress(i + 1, ids.length);
+    await removeThesisRequest(ids[i]);
   }
 };
 
 const addTheses = async ids => {
   for (let i = 0; i < ids.length; i++) {
-    await addThesisRequest(ids[i]);
     updateProgress(i + 1, ids.length);
+    await addThesisRequest(ids[i]);
   }
 };
