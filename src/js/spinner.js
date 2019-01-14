@@ -1,4 +1,4 @@
-const originalContent = sectionThingy.firstElementChild;
+const originalContent = originalThesesContainer.firstElementChild;
 const loadingContent = document.createElement("div");
 const progress = document.createElement("h2");
 progress.style.textAlign = "center";
@@ -14,7 +14,7 @@ const childArray = ["1", "2", "3", "4", "5"].map(index => {
 childArray.forEach(child => spinnerContainer.appendChild(child));
 loadingContent.appendChild(spinnerContainer);
 loadingContent.hidden = true;
-sectionThingy.append(loadingContent);
+originalThesesContainer.append(loadingContent);
 
 let isSpinning = false;
 
