@@ -3,6 +3,18 @@
   HTML (injected in the DOM), thus it must run as the last script
 */
 
+const estimateTime = ids => {
+  let totalSeconds = Number(ids) * 12;
+  let totalMinutes = 0;
+  if (totalSeconds > 60) {
+    totalMinutes = parseInt(totalSeconds / 60);
+    totalSeconds -= totalMinutes * 60;
+  }
+  return totalMinutes
+    ? `${totalMinutes} minutes${totalSeconds ? ", " : ""}`
+    : "" + `${totalSeconds} seconds`;
+};
+
 const originalThesesContainer = document.querySelectorAll(
   "#Table2 > tbody > tr:nth-child(2) > td:nth-child(2)"
 )[1];
@@ -31,6 +43,7 @@ clearAllButton.addEventListener("click", async event => {
       } topic), are you sure?`
     )
   ) {
+    alert(`Estimated: up to ${estimateTime(chosenIds.length)}`);
     toggleSpinner();
     await clearIds(chosenIds);
     toggleSpinner();
@@ -67,6 +80,7 @@ addRemainingButton.addEventListener("click", async event => {
       } topic) to your selection, their order will be as seen, with the first one having the highest priority, are you sure?`
     )
   ) {
+    alert(`Estimated: up to ${estimateTime(remainingIds.length)}`);
     toggleSpinner();
     await addTheses(remainingIds);
     toggleSpinner();
@@ -105,6 +119,7 @@ addSelectedThesesButton.addEventListener("click", async event => {
       } topic, are you sure?`
     )
   ) {
+    alert(`Estimated: up to ${estimateTime(ids.length)}`);
     toggleSpinner();
     await addTheses(ids);
     toggleSpinner();
