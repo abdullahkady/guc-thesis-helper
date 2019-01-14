@@ -12,6 +12,7 @@
         "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
       ],
       "js": [
+        "src/js/vendor/sortable.js",
         "src/js/constants.js",
         "src/js/dom-manipulation.js",
         "src/js/main.js",
@@ -20,6 +21,7 @@
         "src/js/spinner.js"
       ],
       "css": [
+        "src/css/vendor/sortable.css",
         "src/css/spinner.css"
       ],
       "run_at": "document_end"
