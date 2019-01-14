@@ -103,7 +103,7 @@ originalThesesContainer.appendChild(sortableThesesListNode);
 /* ============================================= */
 /* ================ADD  SELECTED================ */
 const addSelectedThesesButton = document.createElement("button");
-addSelectedThesesButton.innerText = "Add selected";
+addSelectedThesesButton.innerText = "Submit batch";
 addSelectedThesesButton.classList = "button button-success";
 addSelectedThesesButton.addEventListener("click", async event => {
   event.preventDefault();
