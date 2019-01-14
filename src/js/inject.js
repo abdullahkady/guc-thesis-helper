@@ -10,9 +10,17 @@ const estimateTime = ids => {
     totalMinutes = parseInt(totalSeconds / 60);
     totalSeconds -= totalMinutes * 60;
   }
-  return totalMinutes
-    ? `${totalMinutes} minutes${totalSeconds ? ", " : ""}`
-    : "" + `${totalSeconds} seconds`;
+
+  let output;
+  if (totalMinutes > 0) {
+    output = `${totalMinutes} minutes`;
+    if (totalSeconds > 0) {
+      output += `, and ${totalSeconds} seconds`;
+    }
+  } else {
+    output = `${totalSeconds} seconds`;
+  }
+  return output;
 };
 
 const originalThesesContainer = document.querySelectorAll(
