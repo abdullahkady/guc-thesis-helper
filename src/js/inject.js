@@ -51,7 +51,15 @@ clearAllButton.addEventListener("click", async event => {
       } topic), are you sure?`
     )
   ) {
-    alert(`Estimated: up to ${estimateTime(chosenIds.length)}`);
+    if (
+      !confirm(
+        `Estimated: up to ${estimateTime(
+          chosenIds.length
+        )}\nDON'T INTERRUPT UNTIL FINISHED.\nReady to start?`
+      )
+    ) {
+      return;
+    }
     toggleSpinner();
     await clearIds(chosenIds);
     toggleSpinner();
@@ -88,7 +96,15 @@ addRemainingButton.addEventListener("click", async event => {
       } topic) to your selection, their order will be as seen, with the first one having the highest priority, are you sure?`
     )
   ) {
-    alert(`Estimated: up to ${estimateTime(remainingIds.length)}`);
+    if (
+      !confirm(
+        `Estimated: up to ${estimateTime(
+          remainingIds.length
+        )}\nDON'T INTERRUPT UNTIL FINISHED.\nReady to start?`
+      )
+    ) {
+      return;
+    }
     toggleSpinner();
     await addTheses(remainingIds);
     toggleSpinner();
@@ -127,7 +143,15 @@ addSelectedThesesButton.addEventListener("click", async event => {
       } topic, are you sure?`
     )
   ) {
-    alert(`Estimated: up to ${estimateTime(ids.length)}`);
+    if (
+      !confirm(
+        `Estimated: up to ${estimateTime(
+          ids.length
+        )}\nDON'T INTERRUPT UNTIL FINISHED.\nReady to start?`
+      )
+    ) {
+      return;
+    }
     toggleSpinner();
     await addTheses(ids);
     toggleSpinner();
