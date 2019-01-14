@@ -26,13 +26,11 @@ const clearChosenTheses = async () => {
   alert("Cleared successfully :)");
 };
 
-const addRemaining = async () => {
-  // Just for testing, should have a bulk selection -hopefully-
-  const count = Number(prompt("Please enter how many you wanna add"));
-  const remaining = getRemainingIds();
-  for (let i = 0; i < count; i++) {
-    await addThesisRequest(remaining[i]);
-    console.log("One has been added");
+const addTheses = async ids => {
+  toggleSpinner();
+  for (let i = 0; i < ids.length; i++) {
+    await addThesisRequest(ids[i]);
+    updateProgress(i + 1, ids.length);
   }
   alert("All done !");
 };
