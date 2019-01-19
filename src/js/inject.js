@@ -32,7 +32,9 @@ originalThesesContainer.appendChild(document.createElement("br"));
 /* ============================================= */
 /* ==================CLEAR ALL================== */
 const clearAllButton = document.createElement("button");
-clearAllButton.innerText = "Clear all";
+clearAllButton.title =
+  "Clears all topics submitted in the system (the blue box above).";
+clearAllButton.innerText = "Clear all registered topics";
 clearAllButton.classList = "button button-danger";
 originalThesesContainer.appendChild(clearAllButton);
 clearAllButton.addEventListener("click", async event => {
@@ -45,10 +47,19 @@ clearAllButton.addEventListener("click", async event => {
   }
 
   if (
+    sortableThesesList.toArray().length > 0 &&
+    !confirm(
+      "This will discard all the added topics in the sortable list below, are you sure?"
+    )
+  ) {
+    return;
+  }
+
+  if (
     confirm(
-      `This will remove every single entry you currently have (${
+      `This will remove every single entry registered on the system, you currently have (${
         chosenIds.length
-      } topic), are you sure?`
+      } topics), are you sure?`
     )
   ) {
     if (
@@ -77,7 +88,9 @@ originalThesesContainer.appendChild(spacingNode);
 /* ============================================= */
 /* ================ADD REMAINING================ */
 const addRemainingButton = document.createElement("button");
-addRemainingButton.innerText = "Add remaining";
+addRemainingButton.innerText = "Add remaining to sortable list";
+addRemainingButton.title =
+  "Adds all the topics remaining above to the sortable list, their order will be maintained (appended to the current list). Clicking will not submit to the system";
 addRemainingButton.classList = "button button-primary";
 originalThesesContainer.appendChild(addRemainingButton);
 
@@ -86,11 +99,17 @@ originalThesesContainer.appendChild(addRemainingButton);
 const sortableThesesListNode = document.createElement("ul");
 sortableThesesListNode.className = "sortable";
 const sortableThesesList = new Sortable(sortableThesesListNode);
+const header = document.createElement("h1");
+header.innerText = "Sortable list";
+header.style.textAlign = "center";
+originalThesesContainer.appendChild(header);
 originalThesesContainer.appendChild(sortableThesesListNode);
 
 /* ============================================= */
 /* ================ADD  SELECTED================ */
 const addSelectedThesesButton = document.createElement("button");
+addSelectedThesesButton.title =
+  "Adds topics in the list above to your selected topics on the system, this will not finalize your submission to the system (you will still need to commit to the system at the end)";
 addSelectedThesesButton.innerText = "Submit batch";
 addSelectedThesesButton.classList = "button button-success";
 addSelectedThesesButton.addEventListener("click", async event => {
