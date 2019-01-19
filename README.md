@@ -20,7 +20,7 @@ You can visit the [releases](https://github.com/AbdullahKady/guc-thesis-helper/r
 
 **Hover** on each button for a detailed description of the action to follow!
 
-**Important:** Make sure you're on the `External/Thesis/ChooseThesis.aspx` [URL](http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx), loading the page while having the window location (the address bar) pointing to other location (_which is the normal behavior if you click on `Choose Thesis` from the admin system_).
+**Important:** Make sure you're on the `External/Thesis/ChooseThesis.aspx` URL [(here)](http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx). Loading the page while having the window location (the address bar) pointing to other location (_which is the normal behavior if you click on `Choose Thesis` from the admin system_) will not work.
 
 This is done **purposefully**, to minimize the extension's permissions, that way, the extension has no access to the rest of the admin system.
 
@@ -30,9 +30,11 @@ This is done **purposefully**, to minimize the extension's permissions, that way
 
 - If you want to access the original system operations, rather than disabling the extension, you can just access the system from the admin system, having a the default admin system as the URL will not trigger the extension to work.
 
-- The system is super slow, so give it time :hourglass:. One request takes up on average ~10seconds, you will see a progress indicator showing up when an operation is started.
+- The system is super slow, so give it time :hourglass:. One request takes up on average ~15seconds, you will see a progress indicator showing up when an operation is started.
 
 ## Features/Actions :mag_right:
+
+### Bulk submit/delete and prioritize without a server-sided-refresh on **EVERY-GOD-DAMN** action
 
 - _Order on the fly using drag&drop_, to populate the sortable list, just click on the desired thesis topic, it will be added to the sortable list, after you're happy with the batch you have added (and possibly sorted), click on the `Submit batch` button, it will start a series of requests being sent, **DON'T INTERRUPT** it during such phase, as mentioned above.
 
