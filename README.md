@@ -1,45 +1,41 @@
-# GUC Thesis Helper
+<h1 align="center">
+  :mortar_board: GUC Thesis Helper :mortar_board:
+</h1>
 
 A chrome extension to help GUC students deal with the thesis prioritization system (currently exclusive for **Engineering**).
 
 ## Installation
 
-#### Chrome Store:
+#### Chrome Store :rocket:
 
 Extension is now live on :tada: [Chrome webstore](https://chrome.google.com/webstore/detail/guc-thesis-helper/moefbpbkffafidnhfelbkhoondeledam) :tada:
 
-#### Manual Installation:
+#### Manual Installation :hammer_and_pick:
 
 You can visit the [releases](https://github.com/AbdullahKady/guc-thesis-helper/releases), download the latest `packed extension` (look for the `.crx` file), open it in chrome to install.
 
-## Usage
+## Usage :checkered_flag:
 
-**Important:** Make sure you're on the `External/Thesis/ChooseThesis.aspx` URL, loading the page while having the window location (the address bar) pointing to other location (_which is the normal behavior if you click on `Choose Thesis` from the admin system_).
+**All operations are not final**, every action is reversible, since you will need to `commit` to the system when you're finished anyway, the extension only helps you update your _registered topics_, so don't be afraid :smile:
 
-To overcome this, simply visit the [URL](http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx) above, or `CTRL+Click` on the link from the admin system to open in a new tab.
+**Hover** on each button for a detailed description of the action to follow!
+
+**Important:** Make sure you're on the `External/Thesis/ChooseThesis.aspx` [URL](http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx), loading the page while having the window location (the address bar) pointing to other location (_which is the normal behavior if you click on `Choose Thesis` from the admin system_).
 
 This is done **purposefully**, to minimize the extension's permissions, that way, the extension has no access to the rest of the admin system.
 
-If you already have chosen your topics, don't be afraid to try it out, after using `Clear all`, re-ordering again will be magical compared to the original system! :grin:
+## Important Notes :books:
 
-## Features:
-
-- _Order on the fly using drag&drop_, to populate the sortable list, just click on the desired thesis topic, it will be added to the sortable list, after you're happy with the batch you have added (and possibly sorted), click on the `Submit batch` button, it will start a series of requests being sent, **DON'T INTERRUPT** it during such phase, as mentioned below.
-
-- _Remove all selected topics_ in case you have a list that you would like to re-arrange, the procedure will follow the same above.
-
-- _Add all remaining_ in case you ordered enough topics, and just want to list the rest in their default order.
-
-## Important Notes:
-
-- **DON'T** stop any operation mid-way (after starting an operation like submitting/clearing), it will mostly result in inconsistency with the system.
-
-- If an operation is interrupted mid-way, it's recommended that you just use the `Clear all` and start over again(since the GUC system allows invalid states, such as duplicated choices).
+- **DON'T** stop any operation mid-way (after starting an operation like submitting/clearing), it will mostly result in inconsistency with the system. If an operation is interrupted, it's recommended to `Clear`, and start again.
 
 - If you want to access the original system operations, rather than disabling the extension, you can just access the system from the admin system, having a the default admin system as the URL will not trigger the extension to work.
 
-- The system is super slow, so give it time. One request takes up on average ~10seconds, you will see a progress indicator showing up when an operation is started.
+- The system is super slow, so give it time :hourglass:. One request takes up on average ~10seconds, you will see a progress indicator showing up when an operation is started.
 
-#### DISCLAIMER
+## Features/Actions :mag_right:
 
-I'm not responsible for any mis-use of this extension.
+- _Order on the fly using drag&drop_, to populate the sortable list, just click on the desired thesis topic, it will be added to the sortable list, after you're happy with the batch you have added (and possibly sorted), click on the `Submit batch` button, it will start a series of requests being sent, **DON'T INTERRUPT** it during such phase, as mentioned above.
+
+- _Remove all selected topics_: Deletes all your submitted topics to the system, if you want to start-over :volcano:
+
+- _Add all remaining_ in case you ordered enough topics, and just want to list the rest in their default order (just appends them to your current sortable list)
