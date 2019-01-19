@@ -80,42 +80,6 @@ const addRemainingButton = document.createElement("button");
 addRemainingButton.innerText = "Add remaining";
 addRemainingButton.classList = "button button-primary";
 originalThesesContainer.appendChild(addRemainingButton);
-addRemainingButton.addEventListener("click", async event => {
-  event.preventDefault();
-  const remainingIds = getRemainingIds();
-
-  if (!remainingIds || remainingIds.length === 0) {
-    alert("You have no more remaining theses :-)");
-    return;
-  }
-
-  if (
-    confirm(
-      `This will add the rest of the unselected theses (${
-        remainingIds.length
-      } topic) to your selection, their order will be as seen, with the first one having the highest priority, are you sure?`
-    )
-  ) {
-    if (
-      !confirm(
-        `Estimated: up to ${estimateTime(
-          remainingIds.length
-        )}\nDON'T INTERRUPT UNTIL FINISHED.\nReady to start?`
-      )
-    ) {
-      return;
-    }
-    toggleSpinner();
-    await addTheses(remainingIds);
-    toggleSpinner();
-    alert(
-      `Added remaining ${
-        remainingIds.length
-      } successfully.\nThe page will reload now to sync with the system.`
-    );
-    window.location.reload();
-  }
-});
 
 /* ============================================= */
 /* ==================SELECTION================== */
@@ -175,12 +139,38 @@ const selectionListClone = selectionList.cloneNode(true);
 selectionList.parentNode.appendChild(selectionListClone);
 selectionList.parentNode.removeChild(selectionList);
 
-selectionListClone.addEventListener("change", event => {
-  const node = event.target.selectedOptions[0];
+// ================ADDITION LISTENERS================ //
+
+const addToSortableList = node => {
   const id = "SO__" + node.value;
   const sortableEntry = document.createElement("li");
   sortableEntry.id = id;
   sortableEntry.textContent = node.textContent;
   sortableThesesListNode.appendChild(sortableEntry);
   selectionListClone.removeChild(node);
+};
+
+selectionListClone.addEventListener("change", event => {
+  const node = event.target.selectedOptions[0];
+  addToSortableList(node);
+});
+
+addRemainingButton.addEventListener("click", async event => {
+  event.preventDefault();
+  const remaining = getRemainingNodes();
+
+  if (!remaining || remaining.length === 0) {
+    alert("You have no more remaining theses :-)");
+    return;
+  }
+
+  if (
+    confirm(
+      `This will add the rest of the unselected theses (${
+        remaining.length
+      } topic) to your selection (sortable list), their order will be as seen, with the first one having the highest priority, are you sure?`
+    )
+  ) {
+    remaining.forEach(addToSortableList);
+  }
 });
