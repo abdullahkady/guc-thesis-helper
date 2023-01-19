@@ -11,7 +11,7 @@ const HEADERS = {
 const REQUEST_CONFIG = {
   credentials: "include",
   headers: HEADERS,
-  referrer: "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx",
+  referrer: "https://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx",
   referrerPolicy: "no-referrer-when-downgrade",
   method: "POST"
 };
