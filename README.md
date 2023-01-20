@@ -20,7 +20,7 @@ You can visit the [releases](https://github.com/AbdullahKady/guc-thesis-helper/r
 
 **Hover** on each button for a detailed description of the action to follow!
 
-**Important:** Make sure you're on the `External/Thesis/ChooseThesis.aspx` URL [(here)](http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx). Loading the page while having the window location (the address bar) pointing to other location (_which is the normal behavior if you click on `Choose Thesis` from the admin system_) will not work.
+**Important:** Make sure you're on the `External/Thesis/ChooseThesis.aspx` URL [(here)](https://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx). Loading the page while having the window location (the address bar) pointing to other location (_which is the normal behavior if you click on `Choose Thesis` from the admin system_) will not work.
 
 This is done **purposefully**, to minimize the extension's permissions, that way, the extension has no access to the rest of the admin system.
 

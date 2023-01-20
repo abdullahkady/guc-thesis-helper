@@ -4,12 +4,12 @@
   "description": "Get some help dealing with the worst possible prioritization system",
   "manifest_version": 2,
   "permissions": [
-    "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
+    "https://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
   ],
   "content_scripts": [
     {
       "matches": [
-        "http://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
+        "https://student.guc.edu.eg/External/Thesis/ChooseThesis.aspx"
       ],
       "js": [
         "src/js/vendor/sortable.js",
