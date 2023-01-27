@@ -158,6 +158,11 @@ const selectionListClone = selectionList.cloneNode(true);
 selectionList.parentNode.appendChild(selectionListClone);
 selectionList.parentNode.removeChild(selectionList);
 
+let myScript = document.createElement('script');
+myScript.setAttribute('type', 'text/javascript');
+myScript.textContent = `__doPostBack = function() {};`;
+(document.head||document.documentElement).appendChild(myScript);
+
 // ================ADDITION LISTENERS================ //
 
 const addToSortableList = node => {
