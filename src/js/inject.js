@@ -166,7 +166,20 @@ const addToSortableList = node => {
   sortableEntry.id = id;
   sortableEntry.textContent = node.textContent;
   sortableThesesListNode.appendChild(sortableEntry);
+  sortableEntry.originalNode = node;
   selectionListClone.removeChild(node);
+  addRemoveButton(sortableEntry);
+};
+
+const addRemoveButton = (sortableEntry) => {
+  const button = document.createElement("span");
+  button.className = 'removeButton';
+  button.onclick = (ev) => {
+    selectionListClone.appendChild(sortableEntry.originalNode);
+    sortableThesesListNode.removeChild(sortableEntry);
+  };
+  button.textContent = "Remove";
+  sortableEntry.appendChild(button);
 };
 
 selectionListClone.addEventListener("change", event => {

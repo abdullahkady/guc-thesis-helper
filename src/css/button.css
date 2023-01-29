@@ -47,3 +47,24 @@
   color: black;
   border: 2px solid #f44336;
 }
+
+.removeButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border: 2px solid white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px;
+  margin-left: 5px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.removeButton:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #f44336;
+}
