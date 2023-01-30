@@ -158,6 +158,15 @@ const selectionListClone = selectionList.cloneNode(true);
 selectionList.parentNode.appendChild(selectionListClone);
 selectionList.parentNode.removeChild(selectionList);
 
+// Remove the postback method causing random refreshes on selecting an item from the list.
+let myScript = document.createElement('script');
+myScript.setAttribute('type', 'text/javascript');
+myScript.textContent = `oldDoPostBack = __doPostBack; __doPostBack = function(target, args) {
+  if(target == 'thesisIdLst') return;
+  else oldDoPostBack(target, args);
+};`;
+(document.head||document.documentElement).appendChild(myScript);
+
 // ================ADDITION LISTENERS================ //
 
 const addToSortableList = node => {
