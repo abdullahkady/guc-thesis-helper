@@ -149,11 +149,17 @@ addSelectedThesesButton.addEventListener("click", async event => {
 originalThesesContainer.appendChild(addSelectedThesesButton);
 
 // ============================================= //
+const selectionList = document.getElementById("thesisIdLst");
+
+// ================FILTERING================ //
+const searchInput = document.createElement('input');
+searchInput.placeholder = 'Filter...';
+searchInput.id = 'filterSearchBox';
+selectionList.parentNode.appendChild(searchInput);
 
 /*
   This is done just to remove the old event listener, it's ugly and bad :')
 */
-const selectionList = document.getElementById("thesisIdLst");
 const selectionListClone = selectionList.cloneNode(true);
 selectionList.parentNode.appendChild(selectionListClone);
 selectionList.parentNode.removeChild(selectionList);
@@ -166,6 +172,19 @@ myScript.textContent = `oldDoPostBack = __doPostBack; __doPostBack = function(ta
   else oldDoPostBack(target, args);
 };`;
 (document.head||document.documentElement).appendChild(myScript);
+
+// ================Selection List Filtering================ //
+searchInput.addEventListener('input', (ev) => {
+  console.log(`Filtering ${selectionListClone.children.length} items for the text "${searchInput.value}"`);
+  for (var i = 0; i < selectionListClone.children.length; i++) {
+    let node = selectionListClone.children[i];
+    if(node.textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
+      node.style.display = 'block';
+    } else {
+      node.style.display = 'none';
+    }
+  }
+});
 
 // ================ADDITION LISTENERS================ //
 
