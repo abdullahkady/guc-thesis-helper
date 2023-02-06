@@ -152,9 +152,9 @@ originalThesesContainer.appendChild(addSelectedThesesButton);
 const selectionList = document.getElementById("thesisIdLst");
 
 // ================FILTERING================ //
-const searchInput = document.createElement('input');
-searchInput.placeholder = 'Filter...';
-searchInput.id = 'filterSearchBox';
+const searchInput = document.createElement("input");
+searchInput.placeholder = "Filter...";
+searchInput.id = "filterSearchBox";
 selectionList.parentNode.appendChild(searchInput);
 
 /*
@@ -165,23 +165,23 @@ selectionList.parentNode.appendChild(selectionListClone);
 selectionList.parentNode.removeChild(selectionList);
 
 // Remove the postback method causing random refreshes on selecting an item from the list.
-let myScript = document.createElement('script');
-myScript.setAttribute('type', 'text/javascript');
+let myScript = document.createElement("script");
+myScript.setAttribute("type", "text/javascript");
 myScript.textContent = `oldDoPostBack = __doPostBack; __doPostBack = function(target, args) {
-  if(target == 'thesisIdLst') return;
+  if(target == "thesisIdLst") return;
   else oldDoPostBack(target, args);
 };`;
 (document.head||document.documentElement).appendChild(myScript);
 
 // ================Selection List Filtering================ //
-searchInput.addEventListener('input', (ev) => {
+searchInput.addEventListener("input", (ev) => {
   console.log(`Filtering ${selectionListClone.children.length} items for the text "${searchInput.value}"`);
   for (var i = 0; i < selectionListClone.children.length; i++) {
     let node = selectionListClone.children[i];
     if(node.textContent.toLowerCase().includes(searchInput.value.toLowerCase())) {
-      node.style.display = 'block';
+      node.style.display = "block";
     } else {
-      node.style.display = 'none';
+      node.style.display = "none";
     }
   }
 });
@@ -201,7 +201,7 @@ const addToSortableList = node => {
 
 const addRemoveButton = (sortableEntry) => {
   const button = document.createElement("span");
-  button.className = 'removeButton';
+  button.className = "removeButton";
   button.onclick = (ev) => {
     selectionListClone.appendChild(sortableEntry.originalNode);
     sortableThesesListNode.removeChild(sortableEntry);
