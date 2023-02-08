@@ -23,7 +23,7 @@
       "css": [
         "src/css/vendor/sortable.css",
         "src/css/spinner.css",
-        "src/css/button.css"
+        "src/css/style.css"
       ],
       "run_at": "document_end"
     }

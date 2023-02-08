@@ -149,23 +149,37 @@ addSelectedThesesButton.addEventListener("click", async event => {
 originalThesesContainer.appendChild(addSelectedThesesButton);
 
 // ============================================= //
+const selectionList = document.getElementById("thesisIdLst");
+
+// ================FILTERING================ //
+const searchInput = document.createElement("input");
+searchInput.placeholder = "Filter...";
+searchInput.id = "filterSearchBox";
+selectionList.parentNode.appendChild(searchInput);
 
 /*
   This is done just to remove the old event listener, it's ugly and bad :')
 */
-const selectionList = document.getElementById("thesisIdLst");
 const selectionListClone = selectionList.cloneNode(true);
 selectionList.parentNode.appendChild(selectionListClone);
 selectionList.parentNode.removeChild(selectionList);
 
 // Remove the postback method causing random refreshes on selecting an item from the list.
-let myScript = document.createElement('script');
-myScript.setAttribute('type', 'text/javascript');
+let myScript = document.createElement("script");
+myScript.setAttribute("type", "text/javascript");
 myScript.textContent = `oldDoPostBack = __doPostBack; __doPostBack = function(target, args) {
-  if(target == 'thesisIdLst') return;
+  if(target == "thesisIdLst") return;
   else oldDoPostBack(target, args);
 };`;
 (document.head||document.documentElement).appendChild(myScript);
+
+// ================Selection List Filtering================ //
+searchInput.addEventListener("input", (ev) => {
+  Array.from(selectionListClone.children).forEach(node => {
+    const matches = node.textContent.toLowerCase().includes(searchInput.value.toLowerCase());
+    node.style.display = matches? "block" : "none";
+  })
+});
 
 // ================ADDITION LISTENERS================ //
 
@@ -182,7 +196,7 @@ const addToSortableList = node => {
 
 const addRemoveButton = (sortableEntry) => {
   const button = document.createElement("span");
-  button.className = 'removeButton';
+  button.className = "removeButton";
   button.onclick = (ev) => {
     selectionListClone.appendChild(sortableEntry.originalNode);
     sortableThesesListNode.removeChild(sortableEntry);
