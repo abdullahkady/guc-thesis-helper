@@ -175,7 +175,6 @@ myScript.textContent = `oldDoPostBack = __doPostBack; __doPostBack = function(ta
 
 // ================Selection List Filtering================ //
 searchInput.addEventListener("input", (ev) => {
-  console.log(`Filtering ${selectionListClone.children.length} items for the text "${searchInput.value}"`);
   Array.from(selectionListClone.children).forEach(node => {
     const matches = node.textContent.toLowerCase().includes(searchInput.value.toLowerCase());
     node.style.display = matches? "block" : "none";
